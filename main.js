@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const boundsPath = path.join(app.getPath('userData'), 'window-bounds.json');
+const gifsPath = path.join(app.getAppPath(), 'gifs.json');
 
 function loadBounds() {
     try {
@@ -21,6 +22,22 @@ function saveBounds(boundsByKey) {
     } catch (error) {
     }
 } 
+
+function loadGifs() {
+    try {
+        const raw = JSON.parse(fs.readFileSync(gifsPath, 'utf8'));
+        if (Array.isArray(raw)) {
+            return raw.filter((value) => typeof value === 'string' && value.trim().length > 0);
+        }
+    } catch (error) {
+    }
+
+    return [
+        "https://i.pinimg.com/originals/03/c3/66/03c3666b87ad9d9278ffebc10449a33f.gif",
+        "https://i.pinimg.com/originals/c8/8b/08/c88b087a46939a683636ab87390cdec4.gif",
+        "assets/moe1.gif"
+    ];
+}
 
 
 
@@ -61,11 +78,10 @@ function createWindow ({gifUrl}, boundsByKey) {
     win.on('close', persistBounds);
 }
 
-// put the gifs here
 app.whenReady().then(() => {
     const boundsByKey = loadBounds();
-    // paste the links of the gifs you want to use here.
-    createWindow({gifUrl: "https://i.pinimg.com/originals/03/c3/66/03c3666b87ad9d9278ffebc10449a33f.gif"}, boundsByKey);
-    createWindow({gifUrl: "https://i.pinimg.com/originals/c8/8b/08/c88b087a46939a683636ab87390cdec4.gif"}, boundsByKey);
-    createWindow({gifUrl: "assets/moe1.gif"}, boundsByKey);
+    const gifs = loadGifs();
+    gifs.forEach((gifUrl) => {
+        createWindow({gifUrl}, boundsByKey);
+    });
 })

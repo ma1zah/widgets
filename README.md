@@ -1,5 +1,5 @@
 # widgets
-Tiny Electron widgets for macOS: transparent, frameless windows that show GIFs.
+An open-source tiny Electron widgets for macOS: transparent, frameless windows that show GIFs.
 
 ## Features
 - Multiple windows, each with its own GIF
@@ -7,10 +7,10 @@ Tiny Electron widgets for macOS: transparent, frameless windows that show GIFs.
 - Window position and size persist between restarts
 
 ## Requirements
-- Node.js (LTS recommended)
-- npm
+- For the packaged app: none
+- For running from source: Node.js (LTS recommended) and npm
 
-## Setup
+## Setup (from source)
 ```bash
 npm install
 ```
@@ -23,27 +23,25 @@ npm start
 ## Usage
 1) Start the app with `npm start`.
 2) You can drag the widget windows to position them.
-3) Change GIFs by editing main.js.
+3) Change GIFs by editing gifs.json.
 
 ## Add or change GIFs
 You can use URLs or local files.
 
 ### Use a URL
-1) In main.js, put this in the //put the gifs here:
+1) In gifs.json, add a URL string:
 
 ```js
-createWindow({gifUrl: "https://example.gif"}, boundsByKey);
+"https://example.gif"
 ```
 
 ### Use a local file
 1) Put the file in an `assets/` folder, for example: `assets/my.gif`
-2) In main.js, put this in the //put the gifs here:
+2) In gifs.json, add a local path string:
 
 ```js
-createWindow({gifUrl: "assets/name.gif"}, boundsByKey);
+"assets/name.gif"
 ```
-
-The window reads the `gif` query param in [index.html](index.html) and sets the image `src`.
 
 ## Notes
 - macOS does not support forcing a window to stay behind all other apps.
@@ -55,6 +53,7 @@ index.html
 main.js
 package.json
 README.md
+gifs.json
 assets/
 ```
 
