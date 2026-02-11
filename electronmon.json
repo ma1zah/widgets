@@ -1,0 +1,13 @@
+{
+  "watch": [
+    "main.js",
+    "index.html"
+  ],
+  "ignore": [
+    "node_modules/**",
+    "package-lock.json",
+    ".git/**",
+    "assets/**"
+  ],
+  "delay": 1000
+}

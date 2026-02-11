@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <img src="https://i.pinimg.com/originals/03/c3/66/03c3666b87ad9d9278ffebc10449a33f.gif" alt="widget" />
+    <img src="assets/my.gif" alt="widget"/>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            -webkit-app-region: no-drag;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        body {
+            -webkit-app-region: drag;
+        }
+
+        body:hover {
+            outline: 2px dashed rgba(255,255,255,0.6);
+            outline-offset: -2px;
+        }
+
+    </style>
+</body>
+</html>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const gif = params.get('gif');
+  if (gif) {
+    document.querySelector('img').src = gif;
+  }
+</script>

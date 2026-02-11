@@ -1,0 +1,26 @@
+{
+  "name": "widgets",
+  "version": "1.0.0",
+  "description": "Tiny Electron widgets for macOS: transparent, frameless windows that show GIFs.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electronmon ."
+  },
+  "electronmon": {
+    "patterns": [
+      "!README.md",
+      "!assets/moe1.gif",
+      "!package.json",
+      "!package-lock.json",
+      "!electronmon.json"
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "electron": "^20.3.12",
+    "electronmon": "^2.0.4"
+  }
+}
