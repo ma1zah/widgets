@@ -61,7 +61,7 @@ function createWindow ({gifUrl}, boundsByKey) {
     win.on('close', persistBounds);
 }
 
-// app caller
+// put the gifs here
 app.whenReady().then(() => {
     const boundsByKey = loadBounds();
     // paste the links of the gifs you want to use here.

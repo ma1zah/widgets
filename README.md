@@ -22,24 +22,25 @@ npm start
 
 ## Usage
 1) Start the app with `npm start`.
-2) Drag the widget windows to position them.
-3) Close the app to save positions, then reopen to restore them.
-4) Change GIFs by editing `gifUrl` entries in [main.js](main.js).
+2) You can drag the widget windows to position them.
+3) Change GIFs by editing main.js.
 
 ## Add or change GIFs
 You can use URLs or local files.
 
 ### Use a URL
-Edit the `gifUrl` values in [main.js](main.js).
+1) In main.js, put this in the //put the gifs here:
+
+```js
+createWindow({gifUrl: "https://example.gif"}, boundsByKey);
+```
 
 ### Use a local file
 1) Put the file in an `assets/` folder, for example: `assets/my.gif`
-2) In [main.js](main.js), pass the local path:
+2) In main.js, put this in the //put the gifs here:
 
 ```js
-const path = require('path');
-const gifPath = path.join(__dirname, 'assets', 'my.gif');
-createWindow({ gifUrl: gifPath }, boundsByKey);
+createWindow({gifUrl: "assets/name.gif"}, boundsByKey);
 ```
 
 The window reads the `gif` query param in [index.html](index.html) and sets the image `src`.
